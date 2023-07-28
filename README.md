@@ -46,5 +46,5 @@ const apiKey = 'YOUR_API_KEY'; // Replace 'YOUR_API_KEY' with your actual TMDb A
 
 ## Usage
 
-Simply open the index.html file in your web browser to access the Show Time movie database website. The initial 20 random movies will be displayed in the table view. Clicking the "Randomise Movie Options" button will fetch a new set of 20 random movies from the TMDb API and update the table accordingly.
+Simply open the index.html file in your web browser to access the Show Time website. The initial 20 random movies will be displayed in the table view.
 
