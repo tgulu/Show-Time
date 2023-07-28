@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css"
+    integrity="sha512-yDUXOUWwbHH4ggxueDnC5vJv4tmfySpVdIcN1LksGZi8W8EVZv4uKGrQc0pVf66zS7LDhFJM7Zdeow1sw1/8Jw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Show Time</title>
+</head>
+
+
+<body>
+  <h1>Show Time</h1>
+  <div class="container">
+    
+    <div class="sort-bar">
+      <div>
+        <p>Animation</p>
+        <i class="fa-solid fa-palette"></i>
+      </div>
+
+      <div>
+        <p>Action</p>
+        <i class="fa-solid fa-explosion"></i>
+      </div>
+
+      <div>
+        <p>Drama</p>
+        <i class="fa-solid fa-user-injured"></i>
+      </div>
+
+      <div>
+        <p>Fantasy</p>
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+      </div>
+
+      <div>
+        <p>Horror</p>
+        <i class="fa-solid fa-spider"></i>
+      </div>
+
+      <div>
+        <p>Romance</p>
+        <i class="fa-regular fa-heart"></i>
+      </div>
+
+      <div>
+        <p>Science Fiction</p>
+        <i class="fa-solid fa-shuttle-space"></i>
+      </div>
+
+      <div>
+        <p>Thriller</p>
+        <i class="fa-solid fa-person-skiing"></i>
+      </div>
+
+    </div>
+
+    <button id="randomiseButton">Randomise</button>
+    <table id="movies-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Poster</th>
+          <th>Overview</th>
+          <th>Release Date</th>
+        </tr>
+      </thead>
+      <tbody id="movies-container"></tbody>
+    </table>
+  </div>
+
+  <footer>
+    <div class="tmdblogo">
+      <p>This product uses the TMDb API but is not endorsed or certified by TMDB</p>
+      <img id="tmdb" src="tmdb.svg" width="200" height="200" />
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
