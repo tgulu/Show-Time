@@ -74,5 +74,16 @@ async function randomFilms() {
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
-  } catch {}
+
+    const data = await response.json();
+    const movies = data.results;
+
+    // Select a random movie from the fetched page
+    const randomMovie = movies[Math.floor(Math.random() * movies.length)];
+
+    // Display the random movie
+    displayMovies([randomMovie]);
+  } catch (error) {
+    console.error("Error fetching random movie", error);
+  }
 }
