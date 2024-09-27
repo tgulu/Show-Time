@@ -64,6 +64,15 @@ fetchMovies();
 
 // discover_url = f'https://api.themoviedb.org/3/discover/movie?api_key={api_key}'
 
-function randomFilms() {
-  const randomBtn = document.getElementById("randomiseButton");
+async function randomFilms() {
+  try {
+    // Generate a random page number (max pages = 500 for discover endpoint)
+    const randomPage = Math.floor(Math.random() * 500) + 1;
+    const apiUrl = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${apiKey}&page=${randomPage}`;
+
+    const response = await fetch(apiUrl);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+  } catch {}
 }
