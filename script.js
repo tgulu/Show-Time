@@ -87,3 +87,8 @@ async function randomFilms() {
     console.error("Error fetching random movie", error);
   }
 }
+// Add event listener to the "Randomise" button
+document
+  .getElementById("randomiseButton")
+  .addEventListener("click", randomFilms);
+Explanation;
