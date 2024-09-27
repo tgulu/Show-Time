@@ -1,6 +1,4 @@
-// import { config } from './config';
-// const apiKey = config.apiKey;
-
+// Import API key
 const apiKey = "2e0b89b338271b056301b32f350a6f25";
 
 // Fetch movies from TMDb API using async/await and Fetch API
@@ -14,16 +12,17 @@ async function fetchMovies() {
     }
 
     const data = await response.json(); // Parse the API response as JSON
-    const movies = data.results.slice(0, 20); // Extract the first 20 movies from the API response
+    const movies = data.results.slice(0, 10); // Extract the first 10 movies from the API response
     displayMovies(movies);
   } catch (error) {
-    console.error("Error fetching api data", error);
+    console.error("Error fetching API data", error);
   }
 }
 
 // Display movies in the table view
 function displayMovies(movies) {
   const moviesContainer = document.getElementById("movies-container");
+  moviesContainer.innerHTML = ""; // Clear existing movie entries
 
   movies.forEach((movie) => {
     const movieRow = createMovieRow(movie); // Create a table row for each movie
@@ -40,7 +39,9 @@ function createMovieRow(movie) {
 
   const posterCell = document.createElement("td");
   const posterImg = document.createElement("img");
-  posterImg.src = `https://image.tmdb.org/t/p/w200/${movie.poster_path}`; // Use the poster_path from the API response
+  posterImg.src = movie.poster_path
+    ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
+    : "placeholder.jpg"; // Use a placeholder if poster_path is null
   posterImg.alt = movie.title;
   posterCell.appendChild(posterImg);
 
@@ -59,11 +60,10 @@ function createMovieRow(movie) {
   return movieRow;
 }
 
-// Fetch and display movies
+// Fetch and display movies on page load
 fetchMovies();
 
-// discover_url = f'https://api.themoviedb.org/3/discover/movie?api_key={api_key}'
-
+// Fetch a random movie when the "Randomise" button is clicked
 async function randomFilms() {
   try {
     // Generate a random page number (max pages = 500 for discover endpoint)
@@ -87,8 +87,19 @@ async function randomFilms() {
     console.error("Error fetching random movie", error);
   }
 }
-// Add event listener to the "Randomise" button
-document
-  .getElementById("randomiseButton")
-  .addEventListener("click", randomFilms);
-Explanation;
+
+// Reset to top 10 movies when "Top 10" button is clicked
+function resetToTop10() {
+  fetchMovies();
+}
+
+// Add event listeners after DOM is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+  document
+    .getElementById("randomiseButton")
+    .addEventListener("click", randomFilms);
+
+  document
+    .getElementById("Top10Button")
+    .addEventListener("click", resetToTop10);
+});
