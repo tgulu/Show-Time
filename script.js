@@ -88,6 +88,24 @@ async function randomFilms() {
   }
 }
 
+// Fetch movies by genre
+async function fetchMoviesByGenre(genreId) {
+  const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreId}&sort_by=popularity.desc`;
+
+  try {
+    const response = await fetch(apiUrl);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const data = await response.json();
+    const movies = data.results.slice(0, 10); // Extract the first 10 movies
+    displayMovies(movies);
+  } catch (error) {
+    console.error("Error fetching movies by genre", error);
+  }
+}
+
 // Reset to top 10 movies when "Top 10" button is clicked
 function resetToTop10() {
   fetchMovies();
