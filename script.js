@@ -60,9 +60,6 @@ function createMovieRow(movie) {
   return movieRow;
 }
 
-// Fetch and display movies on page load
-fetchMovies();
-
 // Fetch a random movie when the "Randomise" button is clicked
 async function randomFilms() {
   try {
@@ -121,3 +118,17 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("Top10Button")
     .addEventListener("click", resetToTop10);
 });
+
+// Add event listeners to genre elements
+function addGenreEventListeners() {
+  const genreElements = document.querySelectorAll(".sort-bar div");
+
+  genreElements.forEach((element) => {
+    const genreId = element.getAttribute("data-genre-id");
+    element.addEventListener("click", () => fetchMoviesByGenre(genreId));
+  });
+}
+
+// Fetch and display movies on page load
+fetchMovies();
+addGenreEventListeners();
