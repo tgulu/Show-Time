@@ -24,7 +24,7 @@ h1 {
   text-align: center;
   margin: 20px 0;
   color: white;
-  font-size: 40px;
+  font-size: 60px;
 }
 
 /* Sort bar Section */
@@ -101,6 +101,10 @@ td {
     "Lucida Sans", Arial, sans-serif;
 }
 
+td:nth-child(2) img {
+  width: 200px;
+}
+
 td:nth-child(4) {
   width: 150px;
   text-align: center;
@@ -133,6 +137,20 @@ footer {
   .container {
     width: 100%;
   }
+
+  .h1 {
+    font-size: 45px;
+  }
+
+  td:nth-child(4) {
+    width: 5px;
+    text-align: center;
+  }
+
+  td:nth-child(2) img {
+    width: 70px;
+  }
+
   th,
   td {
     border: 1px solid gold;
