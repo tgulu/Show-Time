@@ -145,8 +145,7 @@ footer {
     justify-content: space-evenly; /* Distribute items evenly */
     width: 100%; /* Full width */
     border-bottom: none;
-    left: 400px;
-    gap: 40px;
+    gap: 25x;
   }
 
   .sort-bar div {
