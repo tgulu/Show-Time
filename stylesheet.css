@@ -150,7 +150,7 @@ footer {
   }
 
   .sort-bar div {
-    padding: 0 10px;
+    padding-left: 7px;
     flex: 1; /* Each item takes equal width */
     text-align: center; /* Center align content */
     border-radius: 50%;
